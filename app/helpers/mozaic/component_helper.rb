@@ -2,9 +2,9 @@ module Mozaic
     module ComponentHelper
 
         def component name, options = {}, &block
-            c = Mozaic::Component.find_by_name(name.to_sym).first
-            c.render options
-            render partial: "mozaic/#{name.to_s}", locals: { options: c.options(options), block: ( block_given? ? capture(&block) : nil ) }
+            component = Mozaic::Component.find_by_name(name.to_sym).first
+            component.render options
+            render partial: "mozaic/#{name.to_s}", locals: { options: component.options(options), block: ( block_given? ? capture(&block) : nil ) }
         end
 
         def component_wrapper name, options = {}, &block

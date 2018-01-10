@@ -10,6 +10,8 @@ Mozaic is an opinionated layout engine for Rails. It simplifies handling numerou
 
 * [Installation](#installation)
 * [Usage](#usage)
+    * [Layouts](#layouts)
+    * [Components](#components)
 * [Configuration](#configuration)
 * [To Do](#to-do)
 * [Contributing](#contributing)
@@ -49,7 +51,99 @@ Now run the generator:
 
 ## Usage
 
-...
+### Layouts
+
+You can run a generator to create new layouts
+
+    $ rails g mozaic:layout -n my/new/layout
+
+**Note:** Pass the `-e` option to extend another layout with this new layout.
+
+You can use the `mozaic` helper to extend other layouts:
+
+```haml
+= mozaic :layout do
+    ...
+```
+
+`mozaic` takes the layout you want to extend as a first and the area where content should be rendered as a second parameter. Both of them default to `:mozaic`.
+
+Here is how you specify areas to extend layouts:
+
+```haml
+= mozaic_area :area do
+    ...
+```
+
+**Note:** Make sure that your area names are unique across all layouts.
+
+### Components
+
+Mozaic allows you to define components to organize your code:
+
+    $ rails g mozaic:component -n name
+
+```ruby
+Mozaic.configure do |config|
+    config.define_component :name
+end
+```
+
+You are also able to pass default options to your components:
+
+```ruby
+Mozaic.configure do |config|
+    config.define_component :name, lovely: true
+end
+```
+
+```haml
+= options[:lovely].to_s
+```
+
+You can run custom code whenever your component gets rendered:
+
+```ruby
+Mozaic.configure do |config|
+    config.define_component :name, lovely: true do
+        options[:lovely] = !options[:lovely]
+    end
+end
+```
+
+Components can also be defined in your ActiveRecord classes:
+
+```ruby
+class User < ApplicationRecord
+    define_component :avatar
+end
+```
+
+Rendering components is fairly straight forward:
+
+```haml
+= component :name
+```
+
+You are able to override the default options:
+
+```haml
+= component :name, lovely: false
+```
+
+And to pass a block:
+
+```haml
+= component :name, lovely: false do
+    It is lovely.
+```
+
+Here is how to access a block in your component:
+
+```haml
+= options[:lovely].to_s
+= block
+```
 
 ---
 
@@ -63,7 +157,7 @@ Mozaic.configure do |config|
 end
 ```
 
-* `define_component`
+* `define_component` Define components
 
 ---
 
