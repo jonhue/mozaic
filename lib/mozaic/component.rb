@@ -3,12 +3,12 @@ module Mozaic
 
         cattr_accessor :instances
         attr_accessor :name
-        attr_accessor :code
+        attr_accessor :block
         attr_writer :options
 
-        def initialize name, options = {}
+        def initialize name, options = {}, &block
             self.name = name.to_sym
-            self.code = yield if block_given?
+            self.block = block if block_given?
             self.options = options
             self.class.instances = [] if @@instances.nil?
             self.class.instances << self
@@ -19,8 +19,8 @@ module Mozaic
         end
 
         def render options = {}
-            options = self.options options
-            eval(self.code) unless self.code.nil?
+            self.options = self.options options
+            self.block.call unless self.block.nil?
         end
 
         def self.find_by_name name
