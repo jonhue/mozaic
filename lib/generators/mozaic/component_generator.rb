@@ -6,7 +6,7 @@ module Mozaic
 
         include Rails::Generators::Migration
 
-        source_root File.join File.dirname(__FILE__), 'templates/component'
+        source_root File.join File.dirname(__FILE__), '../templates/component'
         desc 'Generate a Mozaic component'
 
         class_option :name, desc: 'Component name', type: :string, aliases: '-n'

@@ -43,7 +43,7 @@ gem 'mozaic', github: 'jonhue/mozaic'
 
 Now run the generator:
 
-    $ rails g mozaic
+    $ rails g mozaic:install
 
 ---
 

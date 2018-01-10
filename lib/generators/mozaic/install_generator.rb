@@ -6,7 +6,7 @@ module Mozaic
 
         include Rails::Generators::Migration
 
-        source_root File.join File.dirname(__FILE__), 'templates/install'
+        source_root File.join File.dirname(__FILE__), '../templates/install'
         desc 'Install Mozaic'
 
         def create_initializer
