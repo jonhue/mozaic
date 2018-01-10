@@ -14,7 +14,7 @@ module Mozaic
         end
 
         def create_layout
-            template 'layout.html.erb', 'app/layouts/mozaic.html.erb'
+            template 'layout.html.erb', 'app/views/layouts/mozaic.html.erb'
         end
 
     end

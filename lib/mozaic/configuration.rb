@@ -12,7 +12,7 @@ module Mozaic
     class Configuration
 
         def define_component name, options = {}, &block
-            Mozaic::Component.new name, capture(&block), options
+            Mozaic::Component.new name.to_sym, ( block_given? ? capture(&block) : nil ), options
         end
 
     end

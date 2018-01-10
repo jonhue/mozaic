@@ -2,16 +2,20 @@ module Mozaic
     module LayoutHelper
 
         def mozaic parent = :mozaic, area = :mozaic, &block
-            extends parent do
-                replace area do
+            extends parent.to_sym do
+                replace area.to_sym do
                     capture(&block)
                 end
             end
         end
 
         def mozaic_area name = :mozaic, &block
-            area name do
-                capture(&block)
+            if block_given?
+                area name.to_sym do
+                    capture(&block)
+                end
+            else
+                area name.to_sym
             end
         end
 

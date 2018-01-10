@@ -15,7 +15,7 @@ module Mozaic
         def create_files
             names = options[:name].split('/')
             name = names.pop
-            template 'layout.html.erb', "app/layouts/#{names.join('/')}/#{name].html.erb}"
+            template 'layout.html.erb', "app/views/layouts/#{names.join('/')}/#{name].html.erb}"
         end
 
     end

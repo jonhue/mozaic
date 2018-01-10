@@ -7,11 +7,11 @@ module Mozaic
         attr_writer :options
 
         def initialize name, code = nil, options = {}
-            @name = name
-            @code = code
-            @options = options
-            @@instances = [] if @@instances.nil?
-            @@instances << self
+            self.name = name.to_sym
+            self.code = code
+            self.options = options
+            self.class.instances = [] if @@instances.nil?
+            self.class.instances << self
         end
 
         def options options = {}
@@ -20,11 +20,12 @@ module Mozaic
 
         def render options = {}
             options = self.options options
-            eval(self.code)
+            eval(self.code) unless self.code.nil?
         end
 
         def self.find_by_name name
-            self.instances.select { |component| component.name == name }
+            return [] if self.instances.nil?
+            self.instances.select { |component| component.name == name.to_sym }
         end
 
     end
