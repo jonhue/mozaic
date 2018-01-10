@@ -6,9 +6,9 @@ module Mozaic
         attr_accessor :code
         attr_writer :options
 
-        def initialize name, code = nil, options = {}
+        def initialize name, options = {}
             self.name = name.to_sym
-            self.code = code
+            self.code = yield
             self.options = options
             self.class.instances = [] if @@instances.nil?
             self.class.instances << self

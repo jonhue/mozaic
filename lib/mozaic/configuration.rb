@@ -11,8 +11,8 @@ module Mozaic
 
     class Configuration
 
-        def define_component name, options = {}, &block
-            Mozaic::Component.new name.to_sym, ( block_given? ? capture(&block) : nil ), options
+        def define_component name, options = {}
+            Mozaic::Component.new name.to_sym, options, &Proc.new
         end
 
     end

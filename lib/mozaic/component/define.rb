@@ -2,9 +2,9 @@ module Mozaic
     class Component
         module Define
 
-            def define_component name, options = {}, &block
+            def define_component name, options = {}
                 Mozaic.configure do |config|
-                    config.define_component name.to_sym, options, ( block_given? ? capture(&block) : nil )
+                    config.define_component name.to_sym, options, &Proc.new
                 end
             end
 
