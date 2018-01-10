@@ -4,7 +4,11 @@ module Mozaic
 
             def define_component name, options = {}
                 Mozaic.configure do |config|
-                    config.define_component name.to_sym, options, &Proc.new
+                    if block_given?
+                        config.define_component name.to_sym, options, &Proc.new
+                    else
+                        config.define_component name.to_sym, options
+                    end
                 end
             end
 

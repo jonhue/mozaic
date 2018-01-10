@@ -8,7 +8,7 @@ module Mozaic
 
         def initialize name, options = {}
             self.name = name.to_sym
-            self.code = yield
+            self.code = yield if block_given?
             self.options = options
             self.class.instances = [] if @@instances.nil?
             self.class.instances << self

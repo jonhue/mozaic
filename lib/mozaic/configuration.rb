@@ -12,7 +12,11 @@ module Mozaic
     class Configuration
 
         def define_component name, options = {}
-            Mozaic::Component.new name.to_sym, options, &Proc.new
+            if block_given?
+                Mozaic::Component.new name.to_sym, options, &Proc.new
+            else
+                Mozaic::Component.new name.to_sym, options
+            end
         end
 
     end
