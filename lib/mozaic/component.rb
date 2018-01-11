@@ -20,7 +20,7 @@ module Mozaic
 
         def render options = {}
             self.options = self.options options
-            self.block.call unless self.block.nil?
+            self.block.call(self.options) unless self.block.nil?
         end
 
         def self.find_by_name name

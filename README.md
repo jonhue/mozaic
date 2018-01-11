@@ -105,7 +105,7 @@ You can run custom code whenever your component gets rendered:
 
 ```ruby
 Mozaic.configure do |config|
-    config.define_component :name, lovely: true do
+    config.define_component :name, lovely: true do |options|
         options[:lovely] = !options[:lovely]
     end
 end
