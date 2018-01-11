@@ -8,7 +8,7 @@ module Mozaic
         end
 
         def component_wrapper name, options = {}, &block
-            content_tag class: "#{name.to_s.split('/').join(' ')} #{options[:class]}", id: options[:id] do
+            content_tag class: "mozaic--component #{name.to_s.split('/').join(' ')} #{options[:class]}", id: options[:id] do
                 capture(&block)
             end
         end

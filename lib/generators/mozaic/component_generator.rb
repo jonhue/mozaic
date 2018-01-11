@@ -15,6 +15,8 @@ module Mozaic
             names = options[:name].split('/')
             name = names.pop
             template 'partial.html.erb', "app/views/mozaic/#{names.join('/')}/_#{name}.html.erb"
+            template 'asset.js.erb', "app/assets/javascripts/mozaic/#{options[:name]}.js"
+            template 'asset.css.erb', "app/assets/stylesheets/mozaic/#{options[:name]}.css"
         end
 
     end

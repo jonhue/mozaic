@@ -1,0 +1,11 @@
+$(document).on( 'turbolinks:load', function() {
+    if ( $('.mozaic--component.<%= options[:name].split("/").join(".") %>').length > 0 ) {
+        <%= options[:name].split("/").each_with_index.map { |s, i| s.capitalize unless i == 0 }.join('') %>();
+    };
+});
+
+
+
+function <%= options[:name].split("/").each_with_index.map { |s, i| s.capitalize unless i == 0 }.join('') %>() {
+    // ...
+};
