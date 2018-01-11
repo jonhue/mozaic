@@ -145,6 +145,14 @@ Here is how to access a block in your component:
 = block
 ```
 
+### Assets
+
+With Mozaic you can automatically add assets to the asset pipeline just by naming the like the component they belong to.
+
+For instance a component with the name `'my/test/component'` can have a javascript asset located at `app/assets/javascripts/mozaic/my/test/component.js` and a stylesheet under `app/assets/stylesheets/mozaic/my/test/component.css`.
+
+**Note:** Asset files are being created automatically when using the component generator.
+
 ---
 
 ## Configuration
