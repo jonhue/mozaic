@@ -17,5 +17,10 @@ module Mozaic
             template 'layout.html.erb', 'app/views/layouts/mozaic.html.erb'
         end
 
+        def create_assets
+            template '.keep', 'app/assets/javascripts/mozaic/.keep'
+            template '.keep', 'app/assets/stylesheets/mozaic/.keep'
+        end
+
     end
 end

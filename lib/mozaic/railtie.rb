@@ -10,11 +10,5 @@ module Mozaic
             end
         end
 
-        # config.after_initialize do
-        #     Mozaic::Component.instances.each do |component|
-        #         Rails.application.config.assets.precompile += ["mozaic/#{component.name.to_s}.js", "mozaic/#{component.name.to_s}.css"]
-        #     end
-        # end
-
     end
 end
