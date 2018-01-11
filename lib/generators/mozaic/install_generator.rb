@@ -17,10 +17,5 @@ module Mozaic
             template 'layout.html.erb', 'app/views/layouts/mozaic.html.erb'
         end
 
-        def create_assets
-            template 'index.js', 'app/assets/javascripts/mozaic/index.js'
-            template 'index.css', 'app/assets/stylesheets/mozaic/index.css'
-        end
-
     end
 end
