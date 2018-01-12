@@ -150,11 +150,11 @@ Here is how to access a block in your component:
 With Mozaic you can automatically add assets to the asset pipeline just by naming the like the component they belong to. Just require Mozaic in your application assets:
 
 ```javascript
-//= require mozaic
+//= require_tree ./mozaic
 ```
 ```css
 /*
- *= require mozaic
+ *= require_tree ./mozaic
  */
 ```
 
