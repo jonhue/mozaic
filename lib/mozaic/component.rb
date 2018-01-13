@@ -15,7 +15,7 @@ module Mozaic
         end
 
         def options options = {}
-            @defaults.merge! options
+            @defaults.merge options
         end
 
         def render options = {}
