@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 1.1.1 - 2018/01/13
+
+* bugfixes
+    * fixed component instance options
+
 ### 1.1.0 - 2018/01/12
 
 * features
