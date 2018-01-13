@@ -4,23 +4,22 @@ module Mozaic
         cattr_accessor :instances
         attr_accessor :name
         attr_accessor :block
-        attr_writer :options
+        attr_accessor :defaults
 
         def initialize name, options = {}, &block
             self.name = name.to_sym
             self.block = block if block_given?
-            self.options = options
+            self.defaults = options
             self.class.instances = [] if @@instances.nil?
             self.class.instances << self
         end
 
         def options options = {}
-            @options.merge! options
+            @defaults.merge! options
         end
 
         def render options = {}
-            self.options = self.options options
-            self.block.call(self.options) unless self.block.nil?
+            self.block.call(self.options(options)) unless self.block.nil?
         end
 
         def self.find_by_name name
