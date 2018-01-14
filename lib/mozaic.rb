@@ -1,3 +1,4 @@
+require 'nestive-rails'
 require 'mozaic/version'
 
 module Mozaic

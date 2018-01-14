@@ -3,7 +3,8 @@ module Mozaic
 
         def component name, options = {}, &block
             component = Mozaic::Component.find_by_name(name.to_sym).first
-            component.render options
+            rendered = component.render options
+            return nil if rendered == false
             render partial: "mozaic/#{name.to_s}", locals: { options: component.options(options), block: ( block_given? ? capture(&block) : nil ) }
         end
 

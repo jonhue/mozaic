@@ -4,6 +4,13 @@
 
 * nothing yet
 
+### 1.2.0 - 2018/01/14
+
+* features
+    * allow to prevent rendering a component by returning false in the block
+* bugfixes
+    * require nestive-rails
+
 ### 1.1.1 - 2018/01/13
 
 * bugfixes
