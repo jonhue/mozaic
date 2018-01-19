@@ -18,8 +18,8 @@ module Mozaic
         end
 
         def create_assets
-            template '.keep', 'app/assets/javascripts/mozaic/.keep'
-            template '.keep', 'app/assets/stylesheets/mozaic/.keep'
+            template '.keep-file', 'app/assets/javascripts/mozaic/.keep'
+            template '.keep-file', 'app/assets/stylesheets/mozaic/.keep'
         end
 
     end
