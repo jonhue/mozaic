@@ -111,6 +111,16 @@ Mozaic.configure do |config|
 end
 ```
 
+Return `false` in the block to return `nil` instead of rendering the component:
+
+```ruby
+Mozaic.configure do |config|
+    config.define_component :name, lovely: true do |options|
+        false unless options[:lovely] == true
+    end
+end
+```
+
 Components can also be defined in your ActiveRecord classes:
 
 ```ruby
