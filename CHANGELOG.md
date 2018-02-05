@@ -4,6 +4,12 @@
 
 * nothing yet
 
+### 1.2.2 - 2018/02/05
+
+* bugfixes
+    * fixed generating `.keep` file
+    * fixed `layout` generator syntax error
+
 ### 1.2.1 - 2018/01/19
 
 * bugfixes
