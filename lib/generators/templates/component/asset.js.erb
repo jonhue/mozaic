@@ -1,4 +1,12 @@
-$(document).on( 'turbolinks:load', function() {
+<% if Mozaic.configuration.es6 %>class <%= options[:name].split("/").map { |s| s.capitalize }.join('') %> {
+
+    constructor(element) {
+        // ...
+    }
+
+};
+
+export default <%= options[:name].split("/").map { |s| s.capitalize }.join('') %>;<% else %>document.addEventListener( 'turbolinks:load', function() {
     if ( $('.mozaic--component.<%= options[:name].split("/").join(".") %>').length > 0 ) {
         <%= options[:name].split("/").each_with_index.map { |s, i| i == 0 ? s : s.capitalize }.join('') %>Init();
     };
@@ -8,4 +16,4 @@ $(document).on( 'turbolinks:load', function() {
 
 function <%= options[:name].split("/").each_with_index.map { |s, i| i == 0 ? s : s.capitalize }.join('') %>Init() {
     // ...
-};
+};<% end %>

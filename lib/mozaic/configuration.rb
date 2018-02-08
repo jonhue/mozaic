@@ -11,6 +11,16 @@ module Mozaic
 
     class Configuration
 
+        attr_accessor :es6
+        attr_accessor :javascripts
+        attr_accessor :stylesheets
+
+        def initialize
+            @es6 = true
+            @javascripts = 'app/javascript/javascripts'
+            @stylesheets = 'app/javascript/stylesheets'
+        end
+
         def define_component name, options = {}
             if block_given?
                 Mozaic::Component.new name.to_sym, options, &Proc.new
