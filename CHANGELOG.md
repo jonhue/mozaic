@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 2.0.0 - 2018/02/08
+
+* features
+    * added configuration options to configure webpack/ES6 usage
+
 ### 1.2.2 - 2018/02/05
 
 * bugfixes

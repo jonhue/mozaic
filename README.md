@@ -157,7 +157,20 @@ Here is how to access a block in your component:
 
 ### Assets
 
-With Mozaic you can automatically add assets to the asset pipeline just by naming the like the component they belong to. Just require Mozaic in your application assets:
+#### Webpack (ES6)
+
+The component generator generates asset files in your [configured](#configuration) directories.
+
+The JavaScript assets use ES6 by default. You can now import a component:
+
+```javascript
+import ComponentName from 'mozaic/component/name';
+let componentName = new ComponentName(document.querySelector('.mozaic-component.document-name'));
+```
+
+#### Sprockets
+
+With Mozaic you can automatically add assets to the asset pipeline by naming them like the component they belong to. Just require Mozaic in your application assets:
 
 ```javascript
 //= require_tree ./mozaic
@@ -185,6 +198,9 @@ end
 ```
 
 * `define_component` Define components
+* `es6` Whether generated JavaScript assets for components should use ES6 syntax or not. Accepts a boolean. Defaults to `true`.
+* `javascripts` Directory to place JavaScript assets for components in. Accepts a string. Defaults to `'app/javascript/javascripts'`.
+* `stylesheets` Directory to place styleshets for components in. Accepts a string. Defaults to `'app/javascript/stylesheets'`.
 
 ---
 
