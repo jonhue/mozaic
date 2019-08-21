@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 Mozaic.configure do |config|
+  # Use Mozaic with Webpacker
+  # config.es6 = true
+  # Javascript asset directory
+  # config.javascripts = 'app/javascript/javascripts'
+  # Stylesheet asset directory
+  # config.stylesheets = 'app/javascript/stylesheets'
 
-    # Use Mozaic with Webpacker
-    # config.es6 = true
-    # Javascript asset directory
-    # config.javascripts = 'app/javascript/javascripts'
-    # Stylesheet asset directory
-    # config.stylesheets = 'app/javascript/stylesheets'
-
-    # Define Mozaic components
-    # config.define_component :name
-
+  # Define Mozaic components
+  # config.define_component :name
 end
